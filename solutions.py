@@ -113,53 +113,43 @@ for i in range(len(M)):
 # Создаём таблицу
 TABL = dict(zip(M, N))
 print(TABL)
-
+iter = 0
 # Гоняем по проверкам столько, скользо задали в начале.
 while iter != NMQ[2]+1:
 
     # Вводим саму проверку
-    q = str(input())
+    q = str(input("Введите ограничение: "))
     Q = [x for x in q.split()]
     znach = 0
     # Получчаем ключ значение отдельно
     for key, value in TABL.items():
-        print(key, value)
-
+        # print(key, value)
         if Q[1] == '>':
             # Пробегаемся по каждому значению(списку) для проверки:
 
             # Нужна проверка с общим выводом соответсвует список
             # ограничению или нет
             for i in value:
-                if i > Q[2]:
-                    print(i > Q[2])
+                # print(i, Q[2])
+                if i > int(Q[2]):
+                    print(f'{i} > {int(Q[2])}')
+                    continue
                 else:
                     print("Не соответсвует ограничению")
                     break
 
         elif Q[1] == '<':
             for i in value:
-                if i < Q[2]:
-                    print(i < Q[2])
+                # print(i, Q[2])
+                if i < int(Q[2]):
+                    print(f'{i} < {int(Q[2])}')
+                    continue
                 else:
+                    print("Не соответсвует ограничению")
                     break
-
-
-
+        print('Все значения соответствуют ограничению!')
     iter += 1
 
-    # if Q[1] == '>':
-    #     if int(Q[0]) == 1:
-    #         # N_A.append(int(Q[2]))
-
-    #     elif int(Q[0]) == -1:
-    #         # N_A.remove(int(Q[2]))
-
-    # elif Q[1] == '<':
-    #     if int(Q[0]) == 1:
-    #         # M_B.append(int(Q[2]))
-    #     else:
-    #         # M_B.remove(int(Q[2]))
 
 
 
