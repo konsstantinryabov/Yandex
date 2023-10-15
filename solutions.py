@@ -96,3 +96,80 @@ while iter != NMQ[2]+1:
 '''
 
 # Задача от Яндекса №3
+
+a = str(input("Введите N - строк, M - столбцов, Q - ограничения: "))
+NMQ = [int(x) for x in a.split()]
+
+# Определяем названия и количество строк
+b = str(input("Введите через пробел  M - столбцов: "))
+M = [x for x in b.split()]
+
+# Вводим значения строк
+N = []
+for i in range(len(M)):
+    n = str(input("Введите через пробле N - с: "))
+    N.append([int(x) for x in n.split()])
+
+# Создаём таблицу
+TABL = dict(zip(M, N))
+print(TABL)
+
+# Гоняем по проверкам столько, скользо задали в начале.
+while iter != NMQ[2]+1:
+
+    # Вводим саму проверку
+    q = str(input())
+    Q = [x for x in q.split()]
+    znach = 0
+    # Получчаем ключ значение отдельно
+    for key, value in TABL.items():
+        print(key, value)
+
+        if Q[1] == '>':
+            # Пробегаемся по каждому значению(списку) для проверки:
+
+            # Нужна проверка с общим выводом соответсвует список
+            # ограничению или нет
+            for i in value:
+                if i > Q[2]:
+                    print(i > Q[2])
+                else:
+                    print("Не соответсвует ограничению")
+                    break
+
+        elif Q[1] == '<':
+            for i in value:
+                if i < Q[2]:
+                    print(i < Q[2])
+                else:
+                    break
+
+
+
+    iter += 1
+
+    # if Q[1] == '>':
+    #     if int(Q[0]) == 1:
+    #         # N_A.append(int(Q[2]))
+
+    #     elif int(Q[0]) == -1:
+    #         # N_A.remove(int(Q[2]))
+
+    # elif Q[1] == '<':
+    #     if int(Q[0]) == 1:
+    #         # M_B.append(int(Q[2]))
+    #     else:
+    #         # M_B.remove(int(Q[2]))
+
+
+
+# NMQ = [int(x) for x in a.split()]
+# N = [int(x) for x in c.split()]
+
+# 2 2 3
+# a b
+# 1 1
+# 2 2
+# a < 3
+# b > 1
+# b < 3
